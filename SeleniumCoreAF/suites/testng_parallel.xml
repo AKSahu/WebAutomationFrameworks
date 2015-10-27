@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests">
+	<listeners>
+		<!-- Reporting listeners -->
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="coreaf.framework.report.ReportNGListener"></listener>
+
+		<!-- WebDriver listeners -->
+		<listener class-name="coreaf.framework.base.DriverListener"></listener>
+	</listeners>
+	<test name="FireFox Tests">
+		<parameter name="browserName" value="firefox"></parameter>
+		<classes>
+			<class name="coreaf.ui.test.TestDemoFirefox" />
+		</classes>
+	</test>
+	<test name="Chrome Tests">
+		<parameter name="browserName" value="chrome"></parameter>
+		<classes>
+			<class name="coreaf.ui.test.TestDemoChrome" />
+		</classes>
+	</test>
+</suite> 
