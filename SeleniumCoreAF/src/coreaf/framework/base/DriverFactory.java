@@ -38,12 +38,13 @@ class DriverFactory {
 
 		} else if (browserName.equalsIgnoreCase(CHROME)) {
 			if (TestEnvironment.isPlatformWindows()) {
-				System.setProperty("webdriver.chrome.driver",
-						TestEnvironment.getDriversDirectory() + File.separator + "chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", TestEnvironment.getDriversDirectory() + File.separator
+						+ "windows" + File.separator + "chromedriver.exe");
 				log.info("'chrome' driver system property set for " + TestEnvironment.getCurrentOperatingSystem());
 			} else if (TestEnvironment.isPlatformMac()) {
 				System.setProperty("webdriver.chrome.driver",
-						TestEnvironment.getDriversDirectory() + File.separator + "chromedriver");
+						TestEnvironment.getDriversDirectory() + File.separator
+						+ "mac" + File.separator + "chromedriver");
 				log.info("'chrome' driver system property set for " + TestEnvironment.getCurrentOperatingSystem());
 			} else {
 				log.info("'chrome' driver system property couldn't set for "

@@ -22,4 +22,10 @@
 			<class name="coreaf.ui.test.TestDemoChrome" />
 		</classes>
 	</test>
+	<test name="Safari Tests">
+		<parameter name="browserName" value="safari"></parameter>
+		<classes>
+			<class name="coreaf.ui.test.TestDemoSafari" />
+		</classes>
+	</test>
 </suite> 
