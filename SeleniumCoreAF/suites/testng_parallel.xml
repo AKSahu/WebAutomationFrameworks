@@ -7,8 +7,6 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		<listener class-name="coreaf.framework.report.ReportNGListener"></listener>
 
-		<!-- WebDriver listeners -->
-		<!-- <listener class-name="coreaf.framework.base.DriverListener"></listener>-->
 	</listeners>
 	<test name="FireFox Tests">
 		<parameter name="browserName" value="firefox"></parameter>

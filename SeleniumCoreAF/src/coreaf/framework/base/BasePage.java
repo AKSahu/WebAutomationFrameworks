@@ -16,7 +16,7 @@ public class BasePage {
 	private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<WebDriver>();
 
 	/**
-	 * Gives an instance of webdriver from the thread
+	 * @see {@link java.lang.ThreadLocal#get()}
 	 * 
 	 * @return
 	 */
@@ -25,7 +25,7 @@ public class BasePage {
 	}
 
 	/**
-	 * Sets the instance of webdriver to the thread
+	 * @see {@link java.lang.ThreadLocal#set(WebDriver value)}
 	 * 
 	 * @param driver
 	 */
@@ -41,6 +41,9 @@ public class BasePage {
 		log.info("Opened URL :: " + url);
 	}
 
+	/**
+	 * @see {@link org.openqa.selenium.WebDriver.Window#maximize()}
+	 */
 	public void maximizeWindow() {
 		getDriver().manage().window().maximize();
 		log.info("Browser window has been maximized.");
