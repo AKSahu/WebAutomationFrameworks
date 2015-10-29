@@ -15,10 +15,16 @@ import coreaf.framework.base.DriverFactory;
 import coreaf.framework.util.ConfigUtil;
 import coreaf.framework.util.ScreenshotCapture;
 
+/**
+ * This is the base class for all test classes in the project. Every test class
+ * should extend this class.
+ * 
+ * @author A. K. Sahu
+ *
+ */
 public class TestBase {
 
 	private static Logger log = Logger.getLogger(TestBase.class);
-	protected BasePage basePage = new BasePage();
 	String browser = null;
 
 	@Parameters({ "browserName" })
@@ -40,7 +46,7 @@ public class TestBase {
 			BasePage.setWebDriver(driver);
 			log.info("WebDriver object was nullified and hence reinitiated it.");
 		}
-		basePage.maximizeWindow();
+		BasePage.maximizeWindow();
 		// we can login to the application here if required
 	}
 

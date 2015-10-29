@@ -44,7 +44,7 @@ public class BasePage {
 	/**
 	 * @see {@link org.openqa.selenium.WebDriver.Window#maximize()}
 	 */
-	public void maximizeWindow() {
+	public static void maximizeWindow() {
 		getDriver().manage().window().maximize();
 		log.info("Browser window has been maximized.");
 	}
