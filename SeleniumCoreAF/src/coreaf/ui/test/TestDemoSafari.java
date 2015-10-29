@@ -1,9 +1,8 @@
 package coreaf.ui.test;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import coreaf.framework.base.DriverManager;
+import coreaf.framework.base.BasePage;
 import coreaf.framework.util.TestEnvironment;
 
 /**
@@ -12,26 +11,22 @@ import coreaf.framework.util.TestEnvironment;
  * @author A. K. Sahu
  *
  */
-public class TestDemoSafari {
+public class TestDemoSafari extends TestBase {
 
 	@Test
 	public void testMethod1() {
-		invokeBrowser("http://www.flipkart.com");
+		BasePage.get("http://www.microsoft.com/");
+		String browser = TestEnvironment.getCurrentBrowserName(BasePage.getDriver());
+
+		System.out.println("Browser:" + browser);
 	}
 
 	@Test
 	public void testMethod2() {
-		invokeBrowser("http://www.ebay.com");
-
-	}
-
-	private void invokeBrowser(String url) {
-		System.out.println("Thread id = " + Thread.currentThread().getId());
-
-		WebDriver driver = DriverManager.getDriver();
-		driver.get(url);
-		String browser = TestEnvironment.getCurrentBrowserName(driver);
+		BasePage.get("http://www.apple.com/");
+		String browser = TestEnvironment.getCurrentBrowserName(BasePage.getDriver());
 
 		System.out.println("Browser:" + browser);
+
 	}
 }

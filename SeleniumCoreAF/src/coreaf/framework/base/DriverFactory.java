@@ -20,7 +20,7 @@ import coreaf.framework.util.TestEnvironment;
  * @author A. K. Sahu
  *
  */
-class DriverFactory {
+public class DriverFactory {
 
 	private static Logger log = Logger.getLogger(DriverFactory.class);
 	public static final String FIREFOX = "firefox";
@@ -28,7 +28,7 @@ class DriverFactory {
 	public static final String INTERNET_EXPLORER = "ie";
 	public static final String SAFARI = "safari";
 
-	static WebDriver createInstance(String browserName) {
+	public static WebDriver createInstance(String browserName) {
 
 		WebDriver driver = null;
 

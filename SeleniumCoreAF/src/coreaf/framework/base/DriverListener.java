@@ -16,6 +16,7 @@ import coreaf.framework.util.ScreenshotCapture;
  * @author A. K. Sahu
  *
  */
+@Deprecated
 public class DriverListener implements IInvokedMethodListener {
 
 	private static Logger log = Logger.getLogger(DriverListener.class);
