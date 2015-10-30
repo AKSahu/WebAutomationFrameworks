@@ -45,6 +45,16 @@ public class TestEnvironment {
 		File screenshot = new File(classPathRoot, "/config");
 		return screenshot.getAbsolutePath();
 	}
+	
+	/**
+	 * Gets driver location
+	 * 
+	 * @return
+	 */
+	public static String getDataDirectory() {
+		File screenshot = new File(classPathRoot, "/data");
+		return screenshot.getAbsolutePath();
+	}
 
 	/**
 	 * Returns <code>true</code> if the current platform is Windows
