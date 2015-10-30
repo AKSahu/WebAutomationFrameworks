@@ -56,14 +56,13 @@ public class TestBase {
 				testResult.getTestClass().getName() + "." + testResult.getName());
 
 		// we can logout from the application here if required
-		BasePage.getDriver().manage().deleteAllCookies();
-		log.info("All browser cookies has been deleted.");
+		BasePage.deleteAllCookies();
 	}
 
 	@AfterClass
 	public void tearDown() {
 		if (BasePage.getDriver() != null) {
-			BasePage.getDriver().quit();
+			BasePage.quit();
 		}
 	}
 

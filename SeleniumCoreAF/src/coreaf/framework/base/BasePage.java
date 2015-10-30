@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebDriver.TargetLocator;
@@ -23,38 +22,16 @@ import coreaf.framework.util.TestEnvironment;
  * @author A. K. Sahu
  *
  */
-public class BasePage {
+public class BasePage extends DriverManager {
 
 	private static Logger log = Logger.getLogger(BasePage.class);
-
-	private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<WebDriver>();
-
-	/**
-	 * @see {@link java.lang.ThreadLocal#get()}
-	 * 
-	 * @return
-	 */
-	public static WebDriver getDriver() {
-
-		return webDriver.get();
-	}
-
-	/**
-	 * @see {@link java.lang.ThreadLocal#set(WebDriver value)}
-	 * 
-	 * @param driver
-	 */
-	public static void setWebDriver(WebDriver driver) {
-
-		webDriver.set(driver);
-	}
 
 	/**
 	 * @see org.openqa.selenium.WebDriver#getCurrentUrl()
 	 */
 	public static String getCurrentUrl() {
 
-		return BasePage.getDriver().getCurrentUrl();
+		return getDriver().getCurrentUrl();
 	}
 
 	/**
@@ -62,7 +39,7 @@ public class BasePage {
 	 */
 	public static String getTitle() {
 
-		return BasePage.getDriver().getTitle();
+		return getDriver().getTitle();
 	}
 
 	/**
@@ -70,7 +47,7 @@ public class BasePage {
 	 */
 	public static List<WebElement> findElements(By by) {
 
-		return BasePage.getDriver().findElements(by);
+		return getDriver().findElements(by);
 	}
 
 	/**
@@ -78,7 +55,7 @@ public class BasePage {
 	 */
 	public static WebElement findElement(By by) {
 
-		return BasePage.getDriver().findElement(by);
+		return getDriver().findElement(by);
 	}
 
 	/**
@@ -86,7 +63,7 @@ public class BasePage {
 	 */
 	public static String getPageSource() {
 
-		return BasePage.getDriver().getPageSource();
+		return getDriver().getPageSource();
 	}
 
 	/**
@@ -94,7 +71,7 @@ public class BasePage {
 	 */
 	public static void close() {
 
-		BasePage.getDriver().close();
+		getDriver().close();
 	}
 
 	/**
@@ -102,7 +79,7 @@ public class BasePage {
 	 */
 	public static void quit() {
 
-		BasePage.getDriver().quit();
+		getDriver().quit();
 	}
 
 	/**
@@ -110,7 +87,7 @@ public class BasePage {
 	 */
 	public static Set<String> getWindowHandles() {
 
-		return BasePage.getDriver().getWindowHandles();
+		return getDriver().getWindowHandles();
 	}
 
 	/**
@@ -118,7 +95,7 @@ public class BasePage {
 	 */
 	public static String getWindowHandle() {
 
-		return BasePage.getDriver().getWindowHandle();
+		return getDriver().getWindowHandle();
 	}
 
 	/**
@@ -126,7 +103,7 @@ public class BasePage {
 	 */
 	public static TargetLocator switchTo() {
 
-		return BasePage.getDriver().switchTo();
+		return getDriver().switchTo();
 	}
 
 	/**
@@ -134,7 +111,7 @@ public class BasePage {
 	 */
 	public static Navigation navigate() {
 
-		return BasePage.getDriver().navigate();
+		return getDriver().navigate();
 	}
 
 	/**
@@ -142,7 +119,7 @@ public class BasePage {
 	 */
 	public static Options manage() {
 
-		return BasePage.getDriver().manage();
+		return getDriver().manage();
 	}
 
 	/**
@@ -161,19 +138,19 @@ public class BasePage {
 
 		getDriver().manage().window().maximize();
 
-		if (TestEnvironment.getCurrentBrowserName(BasePage.getDriver()).equals(DriverFactory.CHROME)) {
+		if (TestEnvironment.getCurrentBrowserName(getDriver()).equals(DriverFactory.CHROME)) {
 
 			Point targetPosition = new Point(0, 0);
-			BasePage.getDriver().manage().window().setPosition(targetPosition);
+			getDriver().manage().window().setPosition(targetPosition);
 
 			String w = "return screen.availWidth";
 			String h = "return screen.availHeight";
-			JavascriptExecutor javascriptExecutor = (JavascriptExecutor) BasePage.getDriver();
+			JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
 			int width = ((Long) javascriptExecutor.executeScript(w)).intValue();
 			int height = ((Long) javascriptExecutor.executeScript(h)).intValue();
 			Dimension targetSize = new Dimension(width, height);
 
-			BasePage.getDriver().manage().window().setSize(targetSize);
+			getDriver().manage().window().setSize(targetSize);
 		}
 
 		log.info("Browser window has been maximized.");
@@ -188,5 +165,15 @@ public class BasePage {
 		log.info("The page has been refreshed.");
 	}
 
+	/**
+	 * @see {@link org.openqa.selenium.WebDriver.Options#deleteAllCookies()}
+	 */
+	public static void deleteAllCookies() {
+		
+		getDriver().manage().deleteAllCookies();
+		log.info("All browser cookies has been deleted.");
+
+	}
+	
 	// will add more required methods here
 }
