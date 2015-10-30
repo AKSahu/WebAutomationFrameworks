@@ -25,5 +25,11 @@
 		<classes>
 			<class name="coreaf.ui.test.TestDemoSafari" />
 		</classes>
+	</test>	
+	<test name="Data Driven Tests">
+		<parameter name="browserName" value="chrome"></parameter>
+		<classes>
+			<class name="coreaf.ui.test.TestDemoDataDriven" />
+		</classes>
 	</test>
 </suite> 
