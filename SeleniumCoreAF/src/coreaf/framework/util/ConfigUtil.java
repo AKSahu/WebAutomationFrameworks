@@ -56,7 +56,16 @@ public class ConfigUtil {
 	public static String getBaseUrl() {
 		return config.getProperty("url");
 	}
-
+	
+	/**
+	 * Gets the value of 'coreAFLoc' property defined in the
+	 * <code>"config/config.properties"</code> file
+	 * 
+	 * @return
+	 */
+	public static String getCoreAFLocation() {
+		return config.getProperty("coreAFLoc");
+	}
 
 	/**
 	 * Gets the value of input property <i>key</i> property defined in the

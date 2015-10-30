@@ -32,7 +32,7 @@ public class TestEnvironment {
 	 * @return
 	 */
 	public static String getDriversDirectory() {
-		File screenshot = new File(classPathRoot, "/drivers");
+		File screenshot = new File(ConfigUtil.getCoreAFLocation(), "/drivers");
 		return screenshot.getAbsolutePath();
 	}
 
