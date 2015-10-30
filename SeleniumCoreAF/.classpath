@@ -9,5 +9,10 @@
 	<classpathentry kind="lib" path="lib/selenium-api-2.48.2.jar" sourcepath="lib/selenium-api-2.48.2-sources.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.48.2.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.13.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-3.13.jar"/>
+	<classpathentry kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

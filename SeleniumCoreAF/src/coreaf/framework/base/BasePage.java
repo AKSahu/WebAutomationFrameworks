@@ -1,5 +1,7 @@
 package coreaf.framework.base;
 
+import static coreaf.framework.base.DriverManager.getDriver;
+
 import java.util.List;
 import java.util.Set;
 
@@ -22,7 +24,7 @@ import coreaf.framework.util.TestEnvironment;
  * @author A. K. Sahu
  *
  */
-public class BasePage extends DriverManager {
+public class BasePage {
 
 	private static Logger log = Logger.getLogger(BasePage.class);
 
@@ -169,11 +171,11 @@ public class BasePage extends DriverManager {
 	 * @see {@link org.openqa.selenium.WebDriver.Options#deleteAllCookies()}
 	 */
 	public static void deleteAllCookies() {
-		
+
 		getDriver().manage().deleteAllCookies();
 		log.info("All browser cookies has been deleted.");
 
 	}
-	
+
 	// will add more required methods here
 }

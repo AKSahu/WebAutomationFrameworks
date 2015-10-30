@@ -12,6 +12,7 @@ import org.testng.annotations.Parameters;
 
 import coreaf.framework.base.BasePage;
 import coreaf.framework.base.DriverFactory;
+import coreaf.framework.base.DriverManager;
 import coreaf.framework.util.ConfigUtil;
 import coreaf.framework.util.ScreenshotCapture;
 
@@ -35,35 +36,38 @@ public class TestBase {
 			browser = ConfigUtil.getBrowser();
 		}
 		log.info("Browser name found for test execution is:" + browser);
-		WebDriver driver = DriverFactory.createInstance(browser);
-		BasePage.setWebDriver(driver);
+//		WebDriver driver = DriverFactory.createInstance(browser);
+//		DriverManager.setWebDriver(driver);
 	}
 
 	@BeforeMethod
 	public void beforeMethod() {
-		if (BasePage.getDriver() == null) {
+//		if (DriverManager.getDriver() == null) {
 			WebDriver driver = DriverFactory.createInstance(browser);
-			BasePage.setWebDriver(driver);
+			DriverManager.setWebDriver(driver);
 			log.info("WebDriver object was nullified and hence reinitiated it.");
-		}
+//		}
 		BasePage.maximizeWindow();
 		// we can login to the application here if required
 	}
 
 	@AfterMethod
 	public void afterMethod(ITestResult testResult) {
-		ScreenshotCapture.takeScreenshot(BasePage.getDriver(),
+		ScreenshotCapture.takeScreenshot(DriverManager.getDriver(),
 				testResult.getTestClass().getName() + "." + testResult.getName());
 
 		// we can logout from the application here if required
-		BasePage.deleteAllCookies();
+//		BasePage.deleteAllCookies();
+		if (DriverManager.getDriver() != null) {
+			BasePage.quit();
+		}
 	}
 
 	@AfterClass
 	public void tearDown() {
-		if (BasePage.getDriver() != null) {
-			BasePage.quit();
-		}
+//		if (DriverManager.getDriver() != null) {
+//			BasePage.quit();
+//		}
 	}
 
 }

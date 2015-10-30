@@ -59,7 +59,5 @@ public class TestDemoDataDriven extends TestBase {
 
 		BasePage.get("http://www.google.com");
 		BasePage.findElement(By.name("q")).sendKeys(empID + "::" + empName + "::" + email + "::" + dateOfJoin);
-		String browser = TestEnvironment.getCurrentBrowserName(BasePage.getDriver());
-		System.out.println("Browser:" + browser);
 	}
 }
