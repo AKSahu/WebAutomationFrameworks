@@ -42,8 +42,7 @@ public class DriverFactory {
 						+ "windows" + File.separator + "chromedriver.exe");
 				log.info("'chrome' driver system property set for " + TestEnvironment.getCurrentOperatingSystem());
 			} else if (TestEnvironment.isPlatformMac()) {
-				System.setProperty("webdriver.chrome.driver",
-						TestEnvironment.getDriversDirectory() + File.separator
+				System.setProperty("webdriver.chrome.driver", TestEnvironment.getDriversDirectory() + File.separator
 						+ "mac" + File.separator + "chromedriver");
 				log.info("'chrome' driver system property set for " + TestEnvironment.getCurrentOperatingSystem());
 			} else {
@@ -59,8 +58,8 @@ public class DriverFactory {
 			DesiredCapabilities dc = DesiredCapabilities.internetExplorer();
 			dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 
-			System.setProperty("webdriver.ie.driver",
-					TestEnvironment.getDriversDirectory() + File.separator + "IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", TestEnvironment.getDriversDirectory() + File.separator + "windows"
+					+ File.separator + "IEDriverServer.exe");
 
 			log.info("initializing 'internet explorer' driver...");
 			driver = new InternetExplorerDriver(dc);
