@@ -3,11 +3,15 @@ package coreaf.framework.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -83,5 +87,47 @@ public class DataDrivenExcel {
 			log.error(e.getMessage());
 		}
 		return new DataFormatter().formatCellValue(cell);
+	}
+
+	/**
+	 * Gets a row values from the opened sheet
+	 * 
+	 * @param rowIndex
+	 *            starting with 0 index
+	 * @return
+	 */
+	public List<Object> getRow(int rowIndex) {
+		List<Object> rowData = new ArrayList<Object>();
+
+		try {
+			Row row = ws.getRow(rowIndex);
+			Iterator<Cell> cells = row.cellIterator();
+
+			while (cells.hasNext()) {
+				Cell cell = cells.next();
+				rowData.add(new DataFormatter().formatCellValue(cell));
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return rowData;
+	}
+
+	/**
+	 * Gets first row number
+	 * 
+	 * @return
+	 */
+	public int getFirstRowNum() {
+		return ws.getFirstRowNum();
+	}
+
+	/**
+	 * Gets last row number
+	 * 
+	 * @return
+	 */
+	public int getLastRowNum() {
+		return ws.getLastRowNum();
 	}
 }
