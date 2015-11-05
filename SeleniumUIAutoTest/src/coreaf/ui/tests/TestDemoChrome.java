@@ -1,4 +1,4 @@
-package coreaf.ui.test;
+package coreaf.ui.tests;
 
 import org.testng.annotations.Test;
 

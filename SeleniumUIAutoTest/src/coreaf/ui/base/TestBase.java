@@ -47,7 +47,7 @@ public class TestBase {
 			DriverManager.setWebDriver(driver);
 			log.info("WebDriver object was nullified and hence reinitiated it.");
 //		}
-		BasePage.maximizeWindow();
+		BasePage.maximize();
 		// we can login to the application here if required
 	}
 
