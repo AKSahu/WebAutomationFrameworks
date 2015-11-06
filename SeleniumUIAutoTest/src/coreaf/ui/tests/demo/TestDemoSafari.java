@@ -1,4 +1,4 @@
-package coreaf.ui.tests;
+package coreaf.ui.tests.demo;
 
 import org.testng.annotations.Test;
 
@@ -11,15 +11,15 @@ import coreaf.ui.base.TestBase;
  * @author A. K. Sahu
  *
  */
-public class TestDemoChrome extends TestBase {
+public class TestDemoSafari extends TestBase {
 
 	@Test
 	public void testMethod1() {
-		BasePage.get("http://www.google.com");
+		BasePage.get("http://www.microsoft.com/");
 	}
 
 	@Test
 	public void testMethod2() {
-		BasePage.get("https://en.wikipedia.org");
+		BasePage.get("http://www.apple.com/");
 	}
 }

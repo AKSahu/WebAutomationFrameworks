@@ -1,4 +1,4 @@
-package coreaf.ui.tests;
+package coreaf.ui.tests.demo;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;

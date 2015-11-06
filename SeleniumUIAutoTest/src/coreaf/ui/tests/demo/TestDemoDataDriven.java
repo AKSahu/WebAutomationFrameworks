@@ -1,4 +1,4 @@
-package coreaf.ui.tests;
+package coreaf.ui.tests.demo;
 
 import java.io.File;
 import java.util.ArrayList;
