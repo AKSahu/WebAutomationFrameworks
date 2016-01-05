@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.13.jar"/>
+	<classpathentry kind="lib" path="lib/ATUReporter_Selenium_testNG_5.5_BETA.jar"/>
+	<classpathentry kind="lib" path="lib/ATUTestRecorder_2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -45,7 +45,7 @@ public class TestEnvironment {
 		File screenshot = new File(classPathRoot, "/config");
 		return screenshot.getAbsolutePath();
 	}
-	
+
 	/**
 	 * Gets driver location
 	 * 
@@ -53,6 +53,16 @@ public class TestEnvironment {
 	 */
 	public static String getDataDirectory() {
 		File screenshot = new File(classPathRoot, "/data");
+		return screenshot.getAbsolutePath();
+	}
+
+	/**
+	 * Gets logs location
+	 * 
+	 * @return
+	 */
+	public static String getLogsDirectory() {
+		File screenshot = new File(classPathRoot, "/logs");
 		return screenshot.getAbsolutePath();
 	}
 
